@@ -58,12 +58,8 @@ function generateRandomName() {
 }
 
 (async () => {
-  //////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
 
   console.log("Payer address:", payer.publicKey.toBase58());
-
-  //////////////////////////////////////////////////////////////////////////////
 
   // load the stored PublicKeys for ease of use
   let localKeys = loadPublicKeysFromFile();
@@ -77,13 +73,6 @@ function generateRandomName() {
   console.log("==== Local PublicKeys loaded ====");
   console.log("Token's mint address:", tokenMint.toBase58());
   console.log(explorerURL({ address: tokenMint.toBase58() }));
-
-  //////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
-
-  /**
-   * Use the Metaplex sdk to handle most NFT actions
-   */
 
   // create an instance of Metaplex sdk for use
   const metaplex = Metaplex.make(connection)
@@ -228,16 +217,6 @@ function generateRandomName() {
       // define how many decimals we want our tokens to have
       decimals: 2,
       //
-      name: "Seven Seas Gold",
-      //
-      symbol: "GOLD",
-      //
-      uri: "https://thisisnot.arealurl/info.json",
-    },
-    {
-      // define how many decimals we want our tokens to have
-      decimals: 2,
-      //
       name: "Seven Seas Rum",
       //
       symbol: "RUM",
@@ -347,15 +326,4 @@ function generateRandomName() {
 
   return;
 
-  /**
-   *
-   */
-
-  printConsoleSeparator("Find by mint:");
-
-  // you can also use the metaplex sdk to retrieve info about the NFT's mint
-  const mintInfo = await metaplex.nfts().findByMint({
-    mintAddress: tokenMint,
-  });
-  console.log(mintInfo);
 })();
