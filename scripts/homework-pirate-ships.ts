@@ -1,8 +1,3 @@
-/**
- * Demonstrates how to mint NFTs and store their metadata on chain using the Metaplex MetadataProgram
- */
-
-// import custom helpers for demos
 import { payer, connection } from "@/lib/vars";
 import {
   buildTransaction,
